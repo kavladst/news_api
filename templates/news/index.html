@@ -1,0 +1,22 @@
+<form method="POST">
+    {% csrf_token %}
+    <button name="update_news" value="True" type="submit">Update news</button>
+    <button name="sort_by_publish_date" value="True" type="submit">Sort by date</button>
+</form>
+<form method="GET">
+    <input type="text" name="find_in_text" placeholder="Search">
+</form>
+<table border="1">
+    <tr>
+        <th>New's text</th>
+        <th>Owner</th>
+        <th>Publish date</th>
+    </tr>
+    {% for new in news %}
+    <tr>
+        <td>{{ new.text }}</td>
+        <td>{{ new.owner }}</td>
+        <td>{{ new.publish_date }}</td>
+    </tr>
+    {% endfor %}
+</table>
